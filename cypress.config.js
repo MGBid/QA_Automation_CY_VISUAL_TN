@@ -7,7 +7,7 @@ module.exports = defineConfig({
   reporterOptions: {
     reportDir: 'cypress/results',
     overwrite: false,
-    html: true,
+    html: false,
     json: true,
     reportPageTitle: 'Reporte de Pruebas Cypress Visual',
     embeddedScreenshots: true,

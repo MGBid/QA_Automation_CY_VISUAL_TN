@@ -1,0 +1,1694 @@
+{
+  "stats": {
+    "suites": 28,
+    "tests": 28,
+    "passes": 23,
+    "pending": 0,
+    "failures": 5,
+    "testsRegistered": 28,
+    "passPercent": 82.14285714285714,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-09-04T00:12:46.045Z",
+    "end": "2025-09-04T20:31:51.189Z",
+    "duration": 73145144
+  },
+  "results": [
+    {
+      "uuid": "c81f3487-e14b-40a8-9870-5dedb9326d1a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0bab753c-a8d1-46d2-8e7c-ac6055b9665f",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 24410,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\ncy.get('body').then($body => {\n  // Busco el AD-SLOT\n  if ($body.find('#ad-slot-itt').length > 0) {\n    cy.log('Se detectó el elemento \"ad-slot-itt\" - Hacemos click en \"Cerrar\".');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'Se detectó el pop-up de AD-SLOT-ITT :('\n    });\n    cy.wait(16000); // TODO IDENTIFICADOR PARA CERRAR\n  } else {\n    cy.log('El elemento \"AD-SLOT-ITT\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'El pop-up de AD-SLOT-ITT NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\ncy.get('footer').scrollIntoView().should('be.visible').should('contain', 'Últimas noticias').should('contain', 'Secciones');\n// Vuelvo al header\ncy.get('header').should('be.visible').scrollIntoView();\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView().wait(3000);\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://tn.com.ar/__cypress/runner/cypress_runner.js:114904:70)\n    at wrapped (https://tn.com.ar/__cypress/runner/cypress_runner.js:141517:19)\n    at <unknown> (https://tn.com.ar/__cypress/runner/cypress_runner.js:147453:15)\n    at tryCatcher (https://tn.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tn.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tn.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://tn.com.ar/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://tn.com.ar/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://tn.com.ar/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "945caf8a-caf0-462e-a294-9329a32729b7",
+              "parentUUID": "0bab753c-a8d1-46d2-8e7c-ac6055b9665f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "945caf8a-caf0-462e-a294-9329a32729b7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24410,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7b066bc1-1f71-491b-9fc3-56e2ed4a29d0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f5ff1d6b-1361-4de2-8e9a-ce6a7b66e06a",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 23711,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\ncy.get('body').then($body => {\n  // Busco el AD-SLOT\n  if ($body.find('#ad-slot-itt').length > 0) {\n    cy.log('Se detectó el elemento \"ad-slot-itt\" - Hacemos click en \"Cerrar\".');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'Se detectó el pop-up de AD-SLOT-ITT :('\n    });\n    cy.wait(16000); // TODO IDENTIFICADOR PARA CERRAR\n  } else {\n    cy.log('El elemento \"AD-SLOT-ITT\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'El pop-up de AD-SLOT-ITT NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\ncy.get('footer').scrollIntoView().should('be.visible').should('contain', 'Últimas noticias').should('contain', 'Secciones');\n// Vuelvo al header\ncy.get('header').should('be.visible').scrollIntoView();\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView().wait(3000);\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://tn.com.ar/__cypress/runner/cypress_runner.js:114904:70)\n    at wrapped (https://tn.com.ar/__cypress/runner/cypress_runner.js:141517:19)\n    at <unknown> (https://tn.com.ar/__cypress/runner/cypress_runner.js:147453:15)\n    at tryCatcher (https://tn.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tn.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tn.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://tn.com.ar/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://tn.com.ar/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://tn.com.ar/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "f1ffefd4-406b-4163-8554-76f931dae989",
+              "parentUUID": "f5ff1d6b-1361-4de2-8e9a-ce6a7b66e06a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f1ffefd4-406b-4163-8554-76f931dae989"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 23711,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "e98c2dbc-3fc5-4518-aa02-91e4488860e3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1b90ab96-2684-4a2e-95fd-3a2e221bbfbd",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 8850,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n/*   cy.get('body').then( ($body) => {\n    // Busco el AD-SLOT\n    if($body.find('#ad-slot-itt').length > 0) {\n       cy.log('Se detectó el elemento \"ad-slot-itt\" - Hacemos click en \"Cerrar\".')\n      Cypress.log({\n        name: 'AD SLOT ITT',\n        displayName: 'AD-SLOT-ITT',\n        message: 'Se detectó el pop-up de AD-SLOT-ITT :('\n      })\n      cy.wait(16000) // TODO IDENTIFICADOR PARA CERRAR\n      } else {\n      cy.log('El elemento \"AD-SLOT-ITT\" NO SE MOSTRÓ!!! ')\n      Cypress.log({\n        name: 'AD SLOT ITT',\n        displayName: 'AD-SLOT-ITT',\n        message: 'El pop-up de AD-SLOT-ITT NO SE MOSTRÓ!! :)'\n      })\n    }\n  })\n     */\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\ncy.get('footer').scrollIntoView().should('be.visible').should('contain', 'Últimas noticias').should('contain', 'Secciones');\n// Vuelvo al header\ncy.get('header').should('be.visible').scrollIntoView();\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView().wait(3000);\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://tn.com.ar/__cypress/runner/cypress_runner.js:114904:70)\n    at wrapped (https://tn.com.ar/__cypress/runner/cypress_runner.js:141517:19)\n    at <unknown> (https://tn.com.ar/__cypress/runner/cypress_runner.js:147453:15)\n    at tryCatcher (https://tn.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tn.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tn.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://tn.com.ar/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://tn.com.ar/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://tn.com.ar/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "b7484842-7ed4-4d72-acee-c5255ec83048",
+              "parentUUID": "1b90ab96-2684-4a2e-95fd-3a2e221bbfbd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b7484842-7ed4-4d72-acee-c5255ec83048"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8850,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b53cbdfc-c416-4cfb-8be7-67c6a4643ba4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "df251da7-f8e3-4b9b-8861-fc0969564eb6",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 9069,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\ncy.get('body').then($body => {\n  // Busco el AD-SLOT\n  if ($body.find('#ad-slot-itt').length > 0) {\n    cy.log('Se detectó el elemento \"ad-slot-itt\" - Hacemos click en \"Cerrar\".');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'Se detectó el pop-up de AD-SLOT-ITT :('\n    });\n  } else {\n    cy.log('El elemento \"AD-SLOT-ITT\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'El pop-up de AD-SLOT-ITT NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\ncy.get('footer').scrollIntoView().should('be.visible').should('contain', 'Últimas noticias').should('contain', 'Secciones');\n// Vuelvo al header\ncy.get('header').should('be.visible').scrollIntoView();\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://tn.com.ar/__cypress/runner/cypress_runner.js:114904:70)\n    at wrapped (https://tn.com.ar/__cypress/runner/cypress_runner.js:141517:19)\n    at <unknown> (https://tn.com.ar/__cypress/runner/cypress_runner.js:147453:15)\n    at tryCatcher (https://tn.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tn.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tn.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://tn.com.ar/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://tn.com.ar/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://tn.com.ar/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "8d84f591-c609-4fa1-9edf-279d4695df37",
+              "parentUUID": "df251da7-f8e3-4b9b-8861-fc0969564eb6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8d84f591-c609-4fa1-9edf-279d4695df37"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9069,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "bcb27882-d544-457d-aac4-06363de7c365",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2d6638f6-93a0-4de0-8ded-b542e03755c3",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 22940,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "6d7c290e-ad7c-4157-bd34-cd57a71ca2c5",
+              "parentUUID": "2d6638f6-93a0-4de0-8ded-b542e03755c3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6d7c290e-ad7c-4157-bd34-cd57a71ca2c5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22940,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d74f5448-37cc-4081-a13b-789abc5f0d50",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "199b9539-c566-4cb3-b2ac-104be5046148",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 16500,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "70774e76-1843-4962-b650-6e739245697a",
+              "parentUUID": "199b9539-c566-4cb3-b2ac-104be5046148",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "70774e76-1843-4962-b650-6e739245697a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16500,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d75d466a-c24f-4123-bdc7-1c35a273090b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "767df8db-4dcf-4358-bac0-4593b6df060a",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 16091,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "cf92916b-462b-4d97-b0b1-993701c850f6",
+              "parentUUID": "767df8db-4dcf-4358-bac0-4593b6df060a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cf92916b-462b-4d97-b0b1-993701c850f6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16091,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "83e55cea-6bf5-4e99-9082-304261c47064",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1bd72366-63a4-42e8-aac8-fd576f42e6d0",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 19540,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "3cdaf661-76ac-4f89-be73-5f19f3e5836c",
+              "parentUUID": "1bd72366-63a4-42e8-aac8-fd576f42e6d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3cdaf661-76ac-4f89-be73-5f19f3e5836c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19540,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "34fc1795-e11f-407d-aab7-fe4e36d39384",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b69555cc-ff3a-4b39-a0c5-456312015a20",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 18228,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "7d416f52-66f9-4d6a-b808-a060535aacd4",
+              "parentUUID": "b69555cc-ff3a-4b39-a0c5-456312015a20",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7d416f52-66f9-4d6a-b808-a060535aacd4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18228,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "6b4e765c-5e13-4c8a-98b6-30acdf638759",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9d19c0b4-a3fb-4d65-b646-63ced458cb94",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 9897,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "847f8cc8-577f-43a8-a206-f09600083af9",
+              "parentUUID": "9d19c0b4-a3fb-4d65-b646-63ced458cb94",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "847f8cc8-577f-43a8-a206-f09600083af9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9897,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "e2c4bb51-3112-48d9-91ac-871291fa63dc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1cddde52-416f-4696-8183-99425806257e",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 16060,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "155d9fb9-6984-4160-9296-ba0bb48cefa8",
+              "parentUUID": "1cddde52-416f-4696-8183-99425806257e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "155d9fb9-6984-4160-9296-ba0bb48cefa8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16060,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b83a02a4-eb82-4b72-b20c-c888f3061000",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4ea1598-b579-477e-916b-362d82b9734f",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 10565,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "6d8acd36-e4b6-4cee-9929-a8079d8875be",
+              "parentUUID": "d4ea1598-b579-477e-916b-362d82b9734f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6d8acd36-e4b6-4cee-9929-a8079d8875be"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10565,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "2aa3fbc2-9997-45ba-b56b-74535cabb009",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "15962e5e-13d6-468d-bb20-543de53d6051",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 32166,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "bc3402a3-f9a8-4196-810a-96174bf7c429",
+              "parentUUID": "15962e5e-13d6-468d-bb20-543de53d6051",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bc3402a3-f9a8-4196-810a-96174bf7c429"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32166,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "715fd6a3-7711-4265-aeca-e0c527a2b963",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "057d610e-5d01-4d5e-9230-aa28519cceb8",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 20873,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "0b039158-0d9d-4783-9c3e-4c1830923fc4",
+              "parentUUID": "057d610e-5d01-4d5e-9230-aa28519cceb8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b039158-0d9d-4783-9c3e-4c1830923fc4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20873,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "26405f1d-6535-448a-82aa-023a77fa671c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9cdfe54-ba86-48bc-9f8d-15cd186fd49e",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 15380,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "c29e6d0c-d84e-42e0-8c81-dd38c0ffb953",
+              "parentUUID": "d9cdfe54-ba86-48bc-9f8d-15cd186fd49e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c29e6d0c-d84e-42e0-8c81-dd38c0ffb953"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15380,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "618babc6-fe83-41b3-8cf8-a0cd120b386e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "228810ef-853e-40ce-a274-76d569d70fae",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 21502,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "747595d3-dbe8-4ff5-af89-67fbbca9cbe0",
+              "parentUUID": "228810ef-853e-40ce-a274-76d569d70fae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "747595d3-dbe8-4ff5-af89-67fbbca9cbe0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21502,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "8b41824b-9202-4844-ae21-f4191d9f9b0c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0946ba20-fd83-4439-8ddd-32a925f61cd3",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 33885,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "6eef923e-404c-410b-8fc7-c1720679f8e2",
+              "parentUUID": "0946ba20-fd83-4439-8ddd-32a925f61cd3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6eef923e-404c-410b-8fc7-c1720679f8e2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 33885,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "90c99c12-53c2-431c-bd50-66f03b363221",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "13316277-6c63-44bb-bf80-9c68e5bb4caf",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 20440,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "7d354d46-ba5c-4f80-b28e-0f40db148f6c",
+              "parentUUID": "13316277-6c63-44bb-bf80-9c68e5bb4caf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7d354d46-ba5c-4f80-b28e-0f40db148f6c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20440,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ff092ad7-2546-47a7-802a-551daebfab3d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a877d17b-c8ff-43da-a193-6f35ac22bbb6",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 40773,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "0c96c15d-c995-49cd-8013-01c38cb16484",
+              "parentUUID": "a877d17b-c8ff-43da-a193-6f35ac22bbb6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0c96c15d-c995-49cd-8013-01c38cb16484"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 40773,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "79371d96-ddc7-482b-ad96-efe7504dcdc3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\showVisualTest.cy.js",
+      "file": "cypress\\e2e\\showVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "77ca440f-2245-4021-88a9-db534d3d0416",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 27616,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/show/').wait(3000);\ncy.url().should('contain', '/show/');\ncy.title().should('contain', 'TN Show, las últimas noticias y videos sobre el espectáculo| TN');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-container').first().should('contain', 'Evangelina Anderson estaría saliendo con un hombre de 34 años:');\ncy.percyAndMochawesomeSnapshot('Captura TN SHOW Primer Brick Container', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('Captura Completa TN SHOW');",
+              "err": {},
+              "uuid": "e14b8d60-9e25-4563-a6e3-1515afa5f4f6",
+              "parentUUID": "77ca440f-2245-4021-88a9-db534d3d0416",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e14b8d60-9e25-4563-a6e3-1515afa5f4f6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27616,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b38f17f5-ee76-42a5-9eee-831158013e70",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9792abe-76ad-4834-adf5-dc4a7a910dd1",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 17957,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "bf90a58f-1420-4783-b0d2-89733cdb4b8a",
+              "parentUUID": "e9792abe-76ad-4834-adf5-dc4a7a910dd1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bf90a58f-1420-4783-b0d2-89733cdb4b8a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17957,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "56db2013-e027-48bb-9000-53d0bcb1cdc3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b9647189-f99c-471b-b3fb-24d4c959a65a",
+          "title": "Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN portada principal",
+              "timedOut": null,
+              "duration": 35100,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "fa5231de-78c1-412f-a58a-b5832cf9c955",
+              "parentUUID": "b9647189-f99c-471b-b3fb-24d4c959a65a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fa5231de-78c1-412f-a58a-b5832cf9c955"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 35100,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "502388d6-2c99-4a2b-97aa-4744f8f684db",
+      "title": "",
+      "fullFile": "cypress\\e2e\\showVisualTest.cy.js",
+      "file": "cypress\\e2e\\showVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d37115ef-b547-4f0e-a9bc-328ff5ca7db0",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 27963,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/show/').wait(3000);\ncy.url().should('contain', '/show/');\ncy.title().should('contain', 'TN Show, las últimas noticias y videos sobre el espectáculo| TN');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-container').first().should('contain', 'Evangelina Anderson estaría saliendo con un hombre de 34 años:');\ncy.percyAndMochawesomeSnapshot('Captura TN SHOW Primer Brick Container', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('Captura Completa TN SHOW');",
+              "err": {},
+              "uuid": "53600b56-2329-4080-ace8-48d3182bdb17",
+              "parentUUID": "d37115ef-b547-4f0e-a9bc-328ff5ca7db0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "53600b56-2329-4080-ace8-48d3182bdb17"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27963,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5a1bb68e-221b-49bc-af6b-7b838c21bb83",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9661ee1-bd7e-4f26-9d3f-a3619d82c58c",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 19648,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "afd2d361-21ad-45f2-ac30-2a48ffeb32d2",
+              "parentUUID": "d9661ee1-bd7e-4f26-9d3f-a3619d82c58c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "afd2d361-21ad-45f2-ac30-2a48ffeb32d2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19648,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "2908ee2d-61ff-4b2f-8ced-bcf703d45b20",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "57314083-4370-4c69-a6e5-0863b0399942",
+          "title": "Home Page TN",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN TN portada principal",
+              "timedOut": null,
+              "duration": 39479,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.percySnapshot('Primer captura de Home');\ncy.cerrarPublicidadITT();\ncy.log('Ya pasó Fangio 🛣️');\n// Hacer validaciones que den tiempo para \ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.log('Ya pasó Fangio 🛣️');\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "4b86d760-fb3d-40d0-914a-212e5f04ce0e",
+              "parentUUID": "57314083-4370-4c69-a6e5-0863b0399942",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4b86d760-fb3d-40d0-914a-212e5f04ce0e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39479,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b1e143aa-490c-4b6b-8bd5-0895507d8b5c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\showVisualTest.cy.js",
+      "file": "cypress\\e2e\\showVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0923fb54-5c9f-4db1-8f93-561a67eef221",
+          "title": "Portada TN SHOW",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "portada TN SHOW captura primer brick container y captura completa",
+              "fullTitle": "Portada TN SHOW portada TN SHOW captura primer brick container y captura completa",
+              "timedOut": null,
+              "duration": 24041,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/show/').wait(3000);\ncy.url().should('contain', '/show/');\ncy.title().should('contain', 'TN Show, las últimas noticias y videos sobre el espectáculo| TN');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-container').first().should('contain', 'Evangelina Anderson estaría saliendo con un hombre de 34 años:');\ncy.percyAndMochawesomeSnapshot('Captura TN SHOW Primer Brick Container', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('Captura Completa TN SHOW');",
+              "err": {},
+              "uuid": "63c4d7e6-ff31-4e51-9e89-798b86a75e48",
+              "parentUUID": "0923fb54-5c9f-4db1-8f93-561a67eef221",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "63c4d7e6-ff31-4e51-9e89-798b86a75e48"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24041,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b1da916e-8224-40bc-9245-cd516a4cb23c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b202f1d9-0d5d-46b6-8c30-d7f856331a6f",
+          "title": "Portada EN VIVO",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "captura de viewport Brick Vivo y captura pantalla completa",
+              "fullTitle": "Portada EN VIVO captura de viewport Brick Vivo y captura pantalla completa",
+              "timedOut": null,
+              "duration": 24045,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "e9a5f6c6-15d5-4fa4-a81d-918704c639a1",
+              "parentUUID": "b202f1d9-0d5d-46b6-8c30-d7f856331a6f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e9a5f6c6-15d5-4fa4-a81d-918704c639a1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "58f87f15-8f7c-476f-a9f5-ca2269f00cdd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db46b78e-6445-42d5-95b6-a172772255d1",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 24334,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\ncy.get('body').then($body => {\n  // Busco el AD-SLOT\n  if ($body.find('#ad-slot-itt').length > 0) {\n    cy.log('Se detectó el elemento \"ad-slot-itt\" - Hacemos click en \"Cerrar\".');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'Se detectó el pop-up de AD-SLOT-ITT :('\n    });\n    cy.wait(16000); // TODO IDENTIFICADOR PARA CERRAR\n  } else {\n    cy.log('El elemento \"AD-SLOT-ITT\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'AD SLOT ITT',\n      displayName: 'AD-SLOT-ITT',\n      message: 'El pop-up de AD-SLOT-ITT NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\ncy.get('footer').scrollIntoView().should('be.visible').should('contain', 'Últimas noticias').should('contain', 'Secciones');\n// Vuelvo al header\ncy.get('header').should('be.visible').scrollIntoView();\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView().wait(3000);\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 11 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://tn.com.ar/__cypress/runner/cypress_runner.js:114904:70)\n    at wrapped (https://tn.com.ar/__cypress/runner/cypress_runner.js:141517:19)\n    at <unknown> (https://tn.com.ar/__cypress/runner/cypress_runner.js:147453:15)\n    at tryCatcher (https://tn.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://tn.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://tn.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://tn.com.ar/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://tn.com.ar/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://tn.com.ar/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://tn.com.ar/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "8730aba6-3c56-4cc9-810e-4441fa3be748",
+              "parentUUID": "db46b78e-6445-42d5-95b6-a172772255d1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8730aba6-3c56-4cc9-810e-4441fa3be748"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24334,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportPageTitle": "Reporte de Pruebas Cypress Visual",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,3 +1,9 @@
 node_modules/
 .env
 readme.md
+img
+erroresEncontrados.md
+guia-de-ejecucion.md
+cypress/screenshots/
+cypress/reports/
+cypress/results/
