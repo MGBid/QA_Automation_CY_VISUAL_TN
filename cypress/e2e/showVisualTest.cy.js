@@ -12,14 +12,19 @@ describe('Portada TN SHOW', () => {
 
     cy.manejarPopupNoticias()
 
-    cy.get('.brick-container').first().should('contain', 'Evangelina Anderson estaría saliendo con un hombre de 34 años:')
+    cy.get('.brick-container').first().within( () => {
+      cy.get('.brick_one.brick_mayor.brick_main').should('exist')
+      .should('have.css', 'margin-right', '16px')
+      cy.get('.brick__two-stories.brick-direction-column.brick_menor').should('exist')
+    })
+    
 
-    cy.percyAndMochawesomeSnapshot('Captura TN SHOW Primer Brick Container', {
+    cy.percyAndMochawesomeSnapshot('3.1-TN SHOW Primer Brick Container', {
       capture: 'viewport',
       overwrite: true
     })
 
-    cy.percyAndMochawesomeSnapshot('Captura Completa TN SHOW')
+    cy.percyAndMochawesomeSnapshot('3.2-Captura Completa TN SHOW')
     
     
   })

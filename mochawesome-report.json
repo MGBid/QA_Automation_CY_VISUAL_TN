@@ -1,20 +1,20 @@
 {
   "stats": {
-    "suites": 28,
-    "tests": 28,
-    "passes": 23,
+    "suites": 36,
+    "tests": 36,
+    "passes": 29,
     "pending": 0,
-    "failures": 5,
-    "testsRegistered": 28,
-    "passPercent": 82.14285714285714,
+    "failures": 7,
+    "testsRegistered": 36,
+    "passPercent": 80.55555555555556,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
     "start": "2025-09-04T00:12:46.045Z",
-    "end": "2025-09-04T20:31:51.189Z",
-    "duration": 73145144
+    "end": "2025-09-04T22:25:07.393Z",
+    "duration": 79941348
   },
   "results": [
     {
@@ -1585,6 +1585,478 @@
           "pending": [],
           "skipped": [],
           "duration": 24045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "224924f3-fde4-4391-85bf-8226dc3f098a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dbbff6eb-55b3-4cd4-9c7d-64cabe55d282",
+          "title": "Home Page TN",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN TN portada principal",
+              "timedOut": null,
+              "duration": 28045,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.wait(3000);\ncy.percySnapshot('Portada de TN sin anuncios ni popups', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "1f3bd26e-a709-4cb1-af50-a11f73e57e1b",
+              "parentUUID": "dbbff6eb-55b3-4cd4-9c7d-64cabe55d282",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1f3bd26e-a709-4cb1-af50-a11f73e57e1b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "0b8895b5-61b5-420a-8aa4-14d1a233a8eb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\juegosVisualTest.cy.js",
+      "file": "cypress\\e2e\\juegosVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "59b34c89-5f27-4afb-a15a-cbf9f64bbc50",
+          "title": "Portada TN JUEGOS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "portada TN JUEGOS captura primer brick container y captura completa",
+              "fullTitle": "Portada TN JUEGOS portada TN JUEGOS captura primer brick container y captura completa",
+              "timedOut": null,
+              "duration": 14242,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/juegos/').wait(3000);\ncy.url().should('contain', '/juegos/');\ncy.title().should('contain', 'TN Juegos');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-cards brick_40').should('contain', 'Rompecabezas').and('contain', 'Crucigrama').and('contain', 'Letras Locas').and('contain', 'Lluvia de objetos');\ncy.percyAndMochawesomeSnapshot('Captura TN JUEGOS Brick Cards de Juegos', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('Captura Completa TN JUEGOS');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.brick-cards brick_40`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.brick-cards brick_40`, but never found it.\n    at Context.eval (webpack://qa_automation_cy_visual_tn/./cypress/e2e/juegosVisualTest.cy.js:15:36)",
+                "diff": null
+              },
+              "uuid": "24fa88b9-4c3f-4031-b0f7-7bfaf4d2bdb5",
+              "parentUUID": "59b34c89-5f27-4afb-a15a-cbf9f64bbc50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "24fa88b9-4c3f-4031-b0f7-7bfaf4d2bdb5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14242,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "036edb94-298e-4413-b2e9-68cb9b3a7e42",
+      "title": "",
+      "fullFile": "cypress\\e2e\\showVisualTest.cy.js",
+      "file": "cypress\\e2e\\showVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd6ace2e-da0a-4780-8f46-6e6cf56dd0f1",
+          "title": "Portada TN SHOW",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "portada TN SHOW captura primer brick container y captura completa",
+              "fullTitle": "Portada TN SHOW portada TN SHOW captura primer brick container y captura completa",
+              "timedOut": null,
+              "duration": 15185,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/show/').wait(3000);\ncy.url().should('contain', '/show/');\ncy.title().should('contain', 'TN Show, las últimas noticias y videos sobre el espectáculo| TN');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-container').first().should('contain', 'Evangelina Anderson estaría saliendo con un hombre de 34 años:');\ncy.percyAndMochawesomeSnapshot('Captura TN SHOW Primer Brick Container', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('Captura Completa TN SHOW');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<div.brick-container>' to contain 'Evangelina Anderson estaría saliendo con un hombre de 34 años:'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<div.brick-container>' to contain 'Evangelina Anderson estaría saliendo con un hombre de 34 años:'\n    at Context.eval (webpack://qa_automation_cy_visual_tn/./cypress/e2e/showVisualTest.cy.js:15:39)",
+                "diff": null
+              },
+              "uuid": "c16fc04c-e844-4830-aba5-2b9265e90b63",
+              "parentUUID": "bd6ace2e-da0a-4780-8f46-6e6cf56dd0f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c16fc04c-e844-4830-aba5-2b9265e90b63"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15185,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "8a8b3fa0-47c5-477a-828c-ab2dfb89ec0f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8633c907-27d1-4d39-8803-bdac87bda92f",
+          "title": "Portada EN VIVO",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "captura de viewport Brick Vivo y captura pantalla completa",
+              "fullTitle": "Portada EN VIVO captura de viewport Brick Vivo y captura pantalla completa",
+              "timedOut": null,
+              "duration": 20860,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\n// Espera para que desaparezca el ad-slot-itt\ncy.wait(4000);\ncy.percyAndMochawesomeSnapshot('Captura Elemento H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "cc84bcd1-9072-4201-8899-d4e96b9d1c16",
+              "parentUUID": "8633c907-27d1-4d39-8803-bdac87bda92f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cc84bcd1-9072-4201-8899-d4e96b9d1c16"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20860,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "764ca014-359e-4aa5-b4ba-86f51948ddd7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homeVisualTest.cy.js",
+      "file": "cypress\\e2e\\homeVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6137c757-682c-4098-8fe5-6e65e2164b79",
+          "title": "Home Page TN",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TN portada principal",
+              "fullTitle": "Home Page TN TN portada principal",
+              "timedOut": null,
+              "duration": 23981,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar').wait(4000);\ncy.url().should('contain', 'tn.com.ar');\ncy.title().should('contain', 'Últimas Noticias de Argentina y del Mundo | Todo Noticias');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.wait(3000);\ncy.percySnapshot('1-HOME TN sin anuncios ni popups?', {\n  percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }\n        .adzone_itt_close_button { display: none; }\n        .tn-popup-container { visibility: hidden; }`\n});",
+              "err": {},
+              "uuid": "3af884e3-45c5-47e4-922d-0c7333e00d77",
+              "parentUUID": "6137c757-682c-4098-8fe5-6e65e2164b79",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3af884e3-45c5-47e4-922d-0c7333e00d77"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23981,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3d54db0b-5fe1-45c2-a9fd-efb7d615e208",
+      "title": "",
+      "fullFile": "cypress\\e2e\\juegosVisualTest.cy.js",
+      "file": "cypress\\e2e\\juegosVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fda340ee-2820-4a68-83e5-dcbef5e7e327",
+          "title": "Portada TN JUEGOS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "portada TN JUEGOS captura primer brick container y captura completa",
+              "fullTitle": "Portada TN JUEGOS portada TN JUEGOS captura primer brick container y captura completa",
+              "timedOut": null,
+              "duration": 19544,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/juegos/').wait(3000);\ncy.url().should('contain', '/juegos/');\ncy.title().should('contain', 'TN Juegos');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-cards.brick_40').should('contain', 'Rompecabezas').and('contain', 'Crucigrama').and('contain', 'Letras Locas').and('contain', 'Lluvia de objetos');\ncy.get('.brick-cards.brick_40').within(() => {\n  cy.get('a').first().should('exist').should('have.css', 'padding', '16px');\n});\ncy.percyAndMochawesomeSnapshot('2.1-TN JUEGOS Brick Cards de Juegos', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('2.2-Captura Completa TN JUEGOS');",
+              "err": {},
+              "uuid": "6d3435b0-1f98-4b47-8682-a7fab3b55804",
+              "parentUUID": "fda340ee-2820-4a68-83e5-dcbef5e7e327",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6d3435b0-1f98-4b47-8682-a7fab3b55804"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19544,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5e290f62-d155-4cbf-a3fe-63e49920a47f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\showVisualTest.cy.js",
+      "file": "cypress\\e2e\\showVisualTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d8105ac6-6df6-427d-ab84-1225795ea523",
+          "title": "Portada TN SHOW",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "portada TN SHOW captura primer brick container y captura completa",
+              "fullTitle": "Portada TN SHOW portada TN SHOW captura primer brick container y captura completa",
+              "timedOut": null,
+              "duration": 26462,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/show/').wait(3000);\ncy.url().should('contain', '/show/');\ncy.title().should('contain', 'TN Show, las últimas noticias y videos sobre el espectáculo| TN');\ncy.cerrarPublicidadITT();\ncy.wait(3000);\ncy.manejarPopupNoticias();\ncy.get('.brick-container').first().within(() => {\n  cy.get('.brick_one.brick_mayor.brick_main').should('exist').should('have.css', 'margin-right', '16px');\n  cy.get('.brick__two-stories.brick-direction-column.brick_menor').should('exist');\n});\ncy.percyAndMochawesomeSnapshot('3.1-TN SHOW Primer Brick Container', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.percyAndMochawesomeSnapshot('3.2-Captura Completa TN SHOW');",
+              "err": {},
+              "uuid": "86e0b5c9-e662-45c3-bf6d-8b52f464418d",
+              "parentUUID": "d8105ac6-6df6-427d-ab84-1225795ea523",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "86e0b5c9-e662-45c3-bf6d-8b52f464418d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26462,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "08614095-461f-426f-9545-6b99072c257f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\specPruebaI.cy.js",
+      "file": "cypress\\e2e\\specPruebaI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7b14d964-4385-4cdf-810c-b24d9da7a224",
+          "title": "Portada EN VIVO",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "captura de viewport Brick Vivo y captura pantalla completa",
+              "fullTitle": "Portada EN VIVO captura de viewport Brick Vivo y captura pantalla completa",
+              "timedOut": null,
+              "duration": 18760,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('macbook-15');\ncy.visit('https://tn.com.ar/envivo/24hs/').wait(3000);\ncy.url().should('contain', '/envivo/24hs');\ncy.title().should('contain', 'TN en vivo las 24 horas | Todo Noticias');\n// Si muestra el normal-slidedown tenemos que skipearlo\ncy.get('body').then($body => {\n  // Busco si el elemento normal-slidedown existe en el body\n  if ($body.find('#normal-slidedown').length > 0) {\n    // El elemento aparece...Busco el botón Más tarde\n    cy.log('Se detectó el elemento \"normal-slidedown\" - Hacemos click en \"Más tarde\".');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP',\n      message: 'Se detectó el pop-up de suscripción :('\n    });\n    cy.get('#normal-slidedown #onesignal-slidedown-cancel-button').click();\n  } else {\n    cy.log('El elemento \"normal-slidedown\" NO SE MOSTRÓ!!! ');\n    Cypress.log({\n      name: 'Popup Handling',\n      displayName: 'POPUP HIDE',\n      message: 'El pop-up de suscripción NO SE MOSTRÓ!! :)'\n    });\n  }\n});\n// Comprueba que el Brick Live contenga las clases indicadas\ncy.get('.brick__live.full-width').should('have.class', 'brick__live').and('have.class', 'full-width').scrollIntoView();\n// Comprueba estilo de H1\ncy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '\"TT Interface\"');\n// Espera para que desaparezca el ad-slot-itt\ncy.wait(4000);\ncy.percyAndMochawesomeSnapshot('4.1-VIVO Captura Viewport H1', {\n  capture: 'viewport',\n  overwrite: true\n});\ncy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView().percyAndMochawesomeSnapshot('4.2-Captura Completa Bloque En Vivo');",
+              "err": {},
+              "uuid": "85ff5466-bf04-4e0d-83ba-29e64b5bb0f9",
+              "parentUUID": "7b14d964-4385-4cdf-810c-b24d9da7a224",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85ff5466-bf04-4e0d-83ba-29e64b5bb0f9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18760,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

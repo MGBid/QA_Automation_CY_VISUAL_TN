@@ -14,7 +14,7 @@ describe('Home Page TN', () => {
         cy.wait(3000)
         
 
-        cy.percySnapshot('Portada de TN sin anuncios ni popups', {
+        cy.percySnapshot('1-HOME TN sin anuncios ni popups?', {
             percyCSS: `#adzone_ittIcon_ad-slot-itt { display: none; }
             .adzone_itt_close_button { display: none; }
             .tn-popup-container { visibility: hidden; }`

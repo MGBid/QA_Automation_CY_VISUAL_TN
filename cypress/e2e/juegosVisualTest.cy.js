@@ -12,14 +12,23 @@ describe('Portada TN JUEGOS', () => {
 
     cy.manejarPopupNoticias()
 
-    cy.get('.brick-cards brick_40').should('contain', 'Rompecabezas').and('contain', 'Crucigrama')
-    .and('contain', 'Letras Locas').and('contain', 'Lluvia de objetos')
-    cy.percyAndMochawesomeSnapshot('Captura TN JUEGOS Brick Cards de Juegos', {
+    cy.get('.brick-cards.brick_40')
+    .should('contain', 'Rompecabezas')
+    .and('contain', 'Crucigrama')
+    .and('contain', 'Letras Locas')
+    .and('contain', 'Lluvia de objetos')
+
+    cy.get('.brick-cards.brick_40').within( () => {
+      cy.get('a').first().should('exist').should('have.css', 'padding', '16px')
+    })
+
+
+    cy.percyAndMochawesomeSnapshot('2.1-TN JUEGOS Brick Cards de Juegos', {
       capture: 'viewport',
       overwrite: true
     })
 
-    cy.percyAndMochawesomeSnapshot('Captura Completa TN JUEGOS')
+    cy.percyAndMochawesomeSnapshot('2.2-Captura Completa TN JUEGOS')
     
     
   })

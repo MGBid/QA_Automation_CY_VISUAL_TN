@@ -38,13 +38,13 @@ describe('Portada EN VIVO', () => {
     cy.get('h1').should('exist').should('be.visible').should('have.css', 'font-family', '"TT Interface"')
     // Espera para que desaparezca el ad-slot-itt
     cy.wait(4000)
-    cy.percyAndMochawesomeSnapshot('Captura Elemento H1', {
+    cy.percyAndMochawesomeSnapshot('4.1-VIVO Captura Viewport H1', {
       capture: 'viewport',
       overwrite: true
     })
 
     cy.get('.brick__live.full-width').should('exist').should('be.visible').scrollIntoView()
-    .percyAndMochawesomeSnapshot('Captura Completa Bloque En Vivo')
+    .percyAndMochawesomeSnapshot('4.2-Captura Completa Bloque En Vivo')
     
     
   })
