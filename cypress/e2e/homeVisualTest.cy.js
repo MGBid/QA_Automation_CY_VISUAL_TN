@@ -20,5 +20,7 @@ describe('Home Page TN', () => {
             .tn-popup-container { visibility: hidden; }`
         });
 
+        cy.percyAndMochawesomeSnapshot('1.2- HOME TN Captura completa')
+
     })
 })

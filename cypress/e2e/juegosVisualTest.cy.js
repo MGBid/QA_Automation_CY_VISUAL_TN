@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+// TODO: SE PUEDEN AGREGAR ASSERTIONS SOBRE EL CSS PARA MAYOR COBERTURA
+
 describe('Portada TN JUEGOS', () => {
   it('portada TN JUEGOS captura primer brick container y captura completa', () => {
     cy.viewport('macbook-15')

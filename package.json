@@ -9,7 +9,7 @@
     "percy:proyecto-page-vivo": "dotenv -e .env -- percy exec -- cypress run --spec 'cypress/e2e/specPruebaI.cy.js'",
     "percy:proyecto-page-vivo-home": "dotenv -e .env -- percy exec --branch 'homepageTN' -- cypress run --spec 'cypress/e2e/homeVisualTest.cy.js'",
     "percy:proyecto-home": "cross-env PERCY_TOKEN=$PERCY_TOKEN_PROYECTO_HOME percy exec -- cypress run --spec 'cypress/e2e/homeVisualTest.cy.js'",
-    "merge:reports": "mochawesome-merge cypress/results/*.json > mochawesome-report.json",
+    "merge:reports": "mochawesome-merge \"cypress/reports/mochawesome-report/*.json\" > mochawesome-report.json",
     "generate:html": "node generate-report",
     "test:report": "npm run percy:cy && npm run merge:reports && npm run generate:html"
   },
@@ -24,6 +24,8 @@
     "@percy/cli": "^1.31.1",
     "@percy/cypress": "^3.1.6",
     "cross-env": "^10.0.0",
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "cypress-multi-reporters": "^2.0.5",
     "dotenv": "^17.2.2",
     "dotenv-cli": "^10.0.0",
     "mochawesome": "^7.1.3",
